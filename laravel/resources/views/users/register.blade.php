@@ -9,6 +9,7 @@
 </head>
 <body>
 <form action="/users" method="post">
+    {{ csrf_field() }}
     <input type="text" name="username" id="username">
     <input type="password" name="password" id="password">
     <input type="email" name="email" id="email">
