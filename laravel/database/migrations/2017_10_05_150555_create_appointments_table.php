@@ -15,7 +15,13 @@ class CreateAppointmentsTable extends Migration
     {
         Schema::create('tbl_appointments', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('customer_id')->unsigned();
+            $table->foreign('customer_id')->references('id')->on('tbl_customers');
+            $table->timestamp('date_of_action');
+            $table->text('description');
+            $table->timestamp('next_action')->nullable();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 
