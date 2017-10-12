@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Costumer;
 
 class customerController extends Controller
 {
@@ -23,7 +24,7 @@ class customerController extends Controller
      */
     public function create()
     {
-        return view('master');
+        return view('customer.create');
     }
 
     /**
@@ -45,7 +46,10 @@ class customerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customer = Costumer::find($id);
+
+        return view('customer.show')
+            ->with('customer' , $customer);
     }
 
     /**
@@ -56,7 +60,10 @@ class customerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customer = Costumer::find($id);
+
+        return view('customer.edit')
+            ->with('customer', $customer);
     }
 
     /**

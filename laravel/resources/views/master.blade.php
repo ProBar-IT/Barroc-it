@@ -28,9 +28,9 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::guest())
-                            <li class="{{ (Request::is('login') ? 'active' : '') }}"><a href="{{ url('auth/login') }}"><i
+                            <li class="{{ (Request::is('login') ? 'active' : '') }}"><a href="{{ url('login') }}"><i
                                             class="fa fa-sign-in"></i> Login</a></li>
-                            <li class="{{ (Request::is('auth/register') ? 'active' : '') }}"><a
+                            <li class="{{ (Request::is('register') ? 'active' : '') }}"><a
                                         href="{{ url('register') }}">Register</a></li>
                         @else
                             @if(Auth::check())
