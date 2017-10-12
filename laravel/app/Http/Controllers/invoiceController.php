@@ -23,7 +23,7 @@ class invoiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('invoice.create');
     }
 
     /**
@@ -56,7 +56,9 @@ class invoiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $invoice = \App\Invoice::find($id);
+
+        return view('invoice.edit')->with($invoice);
     }
 
     /**

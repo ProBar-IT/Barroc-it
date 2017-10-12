@@ -23,7 +23,7 @@ class projectController extends Controller
      */
     public function create()
     {
-        //
+        return view('project.create');
     }
 
     /**
@@ -45,7 +45,9 @@ class projectController extends Controller
      */
     public function show($id)
     {
-        //
+        $project = \App\Project::find($id);
+
+        return view('project.show')->with($project);
     }
 
     /**
@@ -56,7 +58,9 @@ class projectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $project = \App\Project::find($id);
+
+        return view('project.edit')->with($project);
     }
 
     /**
