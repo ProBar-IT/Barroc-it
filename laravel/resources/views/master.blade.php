@@ -11,6 +11,8 @@
 <body>
     <nav>
 
+        @include('layouts.nav')
+
     </nav>
 
     @yield('content')
