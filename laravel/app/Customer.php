@@ -27,4 +27,9 @@ class Customer extends Model
     {
         return $this->hasMany('App\Offer');
     }
+
+    public function extraaddress()
+    {
+        return $this->hasOne('App\Extraaddress');
+    }
 }
