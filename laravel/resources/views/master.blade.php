@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Styles -->
+    
+    <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
     <title>Barroc-It</title>
 
@@ -34,7 +35,7 @@
                                         href="{{ url('register') }}">Register</a></li>
                         @else
                             @if(Auth::check())
-                                @if(Auth::user()->admin==1)
+                                @if(Auth::user()->name == 'Admin')
                                     <ul class="nav navbar-nav">
                                         <li class="{{ (Request::is('admin') ? 'active' : '') }}">
                                             <a href="{{ url('admin') }}"><i class="fa fa-home"></i> Dashboard</a>

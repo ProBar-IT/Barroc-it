@@ -15,6 +15,6 @@ class Project extends Model
 
     public function customer()
     {
-        return $this->belongsTo('App\Costumer');
+        return $this->belongsTo('App\Customer');
     }
 }

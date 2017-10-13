@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use Illuminate\Http\Request;
 use App\Costumer;
 
@@ -46,7 +47,7 @@ class customerController extends Controller
      */
     public function show($id)
     {
-        $customer = Costumer::find($id);
+        $customer = Customer::find($id);
 
         return view('customer.show')
             ->with('customer' , $customer);
@@ -60,7 +61,7 @@ class customerController extends Controller
      */
     public function edit($id)
     {
-        $customer = Costumer::find($id);
+        $customer = Customer::find($id);
 
         return view('customer.edit')
             ->with('customer', $customer);
