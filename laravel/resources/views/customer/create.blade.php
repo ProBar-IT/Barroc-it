@@ -1,5 +1,5 @@
 @extends('master')
 
-@section('conttent')
+@section('content')
 
 {{ 'lala' }}

@@ -19,7 +19,7 @@
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                             data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle Navigation</span>
+                        <p class="sr-only">Toggle Navigation</p>
                     </button>
                     <a class="navbar-brand" href="#">Laravel</a>
                 </div>
