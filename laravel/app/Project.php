@@ -10,11 +10,11 @@ class Project extends Model
 
     public function invoices()
     {
-        return $this->hasMany('App\Invoice');
+        return $this->hasMany(Invoice::class);
     }
 
     public function customer()
     {
-        return $this->belongsTo('App\Customer');
+        return $this->belongsTo(Customer::class);
     }
 }

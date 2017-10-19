@@ -10,26 +10,26 @@ class Customer extends Model
 
     public function projects()
     {
-        return $this->hasMany('App\Project');
+        return $this->hasMany(Project::class);
     }
 
     public function invoices()
     {
-        return $this->hasManyThrough('App\Invoice' , 'App\Project');
+        return $this->hasManyThrough(Invoice::class , Project::class);
     }
 
     public function appointments()
     {
-        return $this->hasMany('App\Appointment');
+        return $this->hasMany(Appointment::class);
     }
 
     public function offers()
     {
-        return $this->hasMany('App\Offer');
+        return $this->hasMany(Offer::class);
     }
 
     public function extraaddress()
     {
-        return $this->hasOne('App\Extraaddress');
+        return $this->hasOne(Extraaddress::class);
     }
 }

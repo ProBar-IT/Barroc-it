@@ -11,6 +11,7 @@
 |
 */
 
+Route::get('/', 'dashboardController@index');
 Route::resource('appointment', 'appointmentController');
 Route::resource('customer', 'customerController');
 Route::resource('invoice', 'invoiceController');

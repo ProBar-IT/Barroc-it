@@ -9,6 +9,6 @@ class Extraaddress extends Model
     protected $table = 'tbl_extra_address';
     public function costumer()
     {
-        return $this->belongsTo('App\Customer');
+        return $this->belongsTo(Customer::class);
     }
 }

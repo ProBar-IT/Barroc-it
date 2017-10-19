@@ -13,7 +13,14 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        //
+        $projects       = \App\Project::all();
+        $customers      = \App\Customer::all();
+        $appointments   = \App\Appointment::all();
+
+        return view('dashboard')
+            ->with('projects' , $projects)
+            ->with('customers' , $customers)
+            ->with('appointments' , $appointments);
     }
 
     /**

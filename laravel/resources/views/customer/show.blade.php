@@ -1,7 +1,8 @@
 @extends('master')
 
 @section('content')
-    <div class="container">
+<h1 class="page-header">Customer</h1>
+<div class="row">
     <section class="col-xs-6">
         <ul class="col-xs-12">
             <li class="list-group-item">Company name:<span class="badge">{{$customer->name}}</span></li>
@@ -78,21 +79,17 @@
                     Yes
                     @break
                     @endswitch
-                </span></li>
+                </span>
+            </li>
         </ul>
     </section>
-    </div>
-
-
-
-    {{--Credytwotrhy == BKR
-        BKR == Credytyworthy
-
-    --}}
-
-    {{--invoices
-        offers
-        project
-       afspraaken
-    --}}
+</div>
+<h1 class="page-header">Customer projects</h1>
+<section class="col-xs-12">
+    <ul>
+        @foreach($customer->projects as $project)
+            <li class="list-group-item">Project name: <a class="pull-right" href="{{action('projectController@show', $project->id)}}"><span class="badge">{{$project->name}}</span></a></li>
+        @endforeach
+    </ul>
+</section>
 @endsection

@@ -1,3 +1,4 @@
-body{
-    background-color: #000;
+.active-tr:hover {
+    color: #149c82;
+    cursor: help;
 }
