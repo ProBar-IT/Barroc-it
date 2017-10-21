@@ -1,4 +1,4 @@
 .active-tr:hover {
     color: #149c82;
-    cursor: help;
+    cursor: pointer;
 }

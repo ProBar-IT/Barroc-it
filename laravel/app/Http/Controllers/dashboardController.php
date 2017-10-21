@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class dashboardController extends Controller
 {
@@ -13,14 +14,26 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        $projects       = \App\Project::all();
-        $customers      = \App\Customer::all();
-        $appointments   = \App\Appointment::all();
+        $projects           = \App\Project::all();
+        $projects_not       = \App\Project::where('status', 0)->get();
+        $projects_star      = \App\Project::where('status', 1)->get();
+        $projects_fin       = \App\Project::where('status', 2)->get();
+        $customers          = \App\Customer::all();
+        $cu_credit          = \App\Customer::where('creditworthy', 1)->get();
+        $cu_not_credit      = \App\Customer::where('creditworthy', 0)->get();
+        $appointments       = \App\Appointment::all();
+        $appointments_new   = \App\Appointment::where('next_action', '>', Carbon::now())->orderBy('next_action', 'asc')->get();
 
         return view('dashboard')
             ->with('projects' , $projects)
+            ->with('projects_not', $projects_not)
+            ->with('projects_star', $projects_star)
+            ->with('projects_fin', $projects_fin)
             ->with('customers' , $customers)
-            ->with('appointments' , $appointments);
+            ->with('cu_credit' , $cu_credit)
+            ->with('cu_not_credit' , $cu_not_credit)
+            ->with('appointments' , $appointments)
+            ->with('appointments_new', $appointments_new);
     }
 
     /**
