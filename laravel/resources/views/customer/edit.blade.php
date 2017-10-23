@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="header col-xs-12">
-        <h1 class="page-header col-xs-6">Customer</h1>
+        <h1 class="page-header col-xs-6">Edit customer</h1>
         <a href="{{action('customerController@show', $customer->id)}}" class="btn btn-success pull-right page-header">Show customer</a>
     </div>
     @if ( $errors->any() )
@@ -119,11 +119,11 @@
                             Status Not controlled
                             @break
                             @case(1)
-                            Status No
-                            @break
-                            @case(2)
                             Status Yes
                             @break
+                            @case(2)
+                                Status Yes
+                                @break
                             @endswitch
                         </option>
                         <option value="0">Not controlled</option>
@@ -135,7 +135,7 @@
                     <label for="">Customer creditworthy</label>
                     <select name="creditworthy" class="form-control">
                         <option value="" disabled selected>
-                            @switch($customer->creditworthy)
+                            @switch($customer->credithworthy)
                             @case(0)
                             Status No
                             @break

@@ -1,7 +1,10 @@
 @extends('master')
 
 @section('content')
-    <h1 class="page-header">Project</h1>
+    <div class="header col-xs-12">
+        <h1 class="page-header col-xs-6">Project</h1>
+        <a href="{{action('projectController@edit', $project->id)}}" class="btn btn-success pull-right page-header">Edit customer</a>
+    </div>
         <section class="col-xs-12">
             <ul>
                 <li class="list-group-item">Project name:<span class="badge">{{$project->name}}</span></li>

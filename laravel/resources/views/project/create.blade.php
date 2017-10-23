@@ -2,7 +2,15 @@
 
 @section('content')
     <h1 class="page-header" style="text-align: center;">Add project</h1>
-    <form action="" method="post" class="col-xs-6 col-xs-offset-3">
+    @if ( $errors->any() )
+        @foreach($errors->all() as $error)
+            <p class="col-xs-6 col-xs-offset-3 bg-danger" style="text-align: center">{{$error}}</p>
+        @endforeach
+    @endif
+    @if ( session('success') )
+        <p class="col-xs-6 col-xs-offset-3 bg-success" style="text-align: center">{{session('success')}}</p>
+    @endif
+    <form action="{{action('projectController@store')}}" method="post" class="col-xs-6 col-xs-offset-3">
         {{csrf_field()}}
         <div class="form-group">
             <label for="">Select company </label>
@@ -32,13 +40,13 @@
         </div>
         <div class="form-group">
             <label for="">Maintenance contract</label>
-            <select name="status" class="form-control">
+            <select name="maintenance" class="form-control">
                 <option value="" disabled selected></option>
                 <option value="0">No</option>
                 <option value="1">Yes</option>
             </select>
         </div>
-        <div class="form-group">W
+        <div class="form-group">
             <label for="">Applications</label>
             <input class="form-control" type="text" name="applications">
         </div>

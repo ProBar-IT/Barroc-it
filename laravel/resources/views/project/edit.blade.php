@@ -1,9 +1,21 @@
 @extends('master')
 
 @section('content')
-    <h1 class="page-header">Edit project</h1>
-    <form action="" method="post">
+    <div class="header col-xs-12">
+        <h1 class="page-header col-xs-6">Edit project</h1>
+        <a href="{{action('projectController@show', $project->id)}}" class="btn btn-success pull-right page-header">Show project</a>
+    </div>
+    @if ( $errors->any() )
+        @foreach($errors->all() as $error)
+            <li> {{ $error }} </li>
+        @endforeach
+    @endif
+    @if ( session('success') )
+        <p class="col-xs-6 col-xs-offset-3 bg-success" style="text-align: center">{{session('success')}}</p>
+    @endif
+    <form action="{{action('projectController@update', $project->id)}}" method="post">
         {{csrf_field()}}
+        {{method_field('PUT')}}
         <div class="form-group col-xs-6">
             <label for="">Project name</label>
             <input type="text" class="form-control" value="{{$project->name}}" name="project_name">
@@ -29,7 +41,7 @@
             <label for="">Maintenance contract</label>
             <select name="maintenance_contract" class="form-control">
                 <option value="" disabled selected>
-                    @switch($project->status)
+                    @switch($project->maintenance_contract)
                     @case(0)
                     Status No
                     @break
@@ -53,6 +65,10 @@
         <div class="form-group col-xs-6">
             <label for="">Project operating system</label>
             <input type="text" class="form-control" value="{{$project->operating_system}}" name="project_system">
+        </div>
+        <div class="form-group col-xs-6">
+            <label for="">Project operating system</label>
+            <input type="text" class="form-control" value="{{$project->internal_cp}}" name="internal_cp">
         </div>
         <div class="form-group col-xs-12">
             <label for="">Project description</label>
