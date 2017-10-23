@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Appointment;
 use Illuminate\Http\Request;
 
 class appointmentController extends Controller
@@ -35,7 +36,23 @@ class appointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'customer_id' => 'required|int',
+            'date' => 'required|date',
+            'time' => 'required|date_format:H:i',
+            'description' => 'required|string|min:50'
+        ]);
+
+        $appointment = new \App\Appointment();
+        $appointment->customer_id = $request->customer_id;
+        $appointment->date_of_action = Now();
+        $appointment->description = $request->description;
+        $appointment->next_action = $request->date . ' ' . $request->time;
+        $appointment->created_at = Now();
+        $appointment->updated_at = Now();
+        $appointment->save();
+
+        return back()->with('success', 'Appointment added successfully');
     }
 
     /**

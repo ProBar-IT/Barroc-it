@@ -2,11 +2,19 @@
 
 @section('content')
     <h1 class="page-header" style="text-align: center;">Add appointment</h1>
-    <form action="" method="post" class="col-xs-6 col-xs-offset-3">
+    @if ( $errors->any() )
+        @foreach($errors->all() as $error)
+            <li> {{ $error }} </li>
+        @endforeach
+    @endif
+    @if ( session('success') )
+        <p class="col-xs-6 col-xs-offset-3 bg-success" style="text-align: center">{{session('success')}}</p>
+    @endif
+    <form action="{{action('appointmentController@store')}}" method="post" class="col-xs-6 col-xs-offset-3">
         {{csrf_field()}}
         <div class="form-group">
-            <label for="">Select company </label>
-            <select name="customer_id" class="form-control" place>
+            <label for="Company_name">Select company </label>
+            <select name="customer_id" class="form-control" id="Company_Name">
                 <option value="" disabled selected>Select company</option>
                 @foreach($customers as $customer)
                     <option value="{{$customer->id}}">{{$customer->name}}</option>
@@ -14,8 +22,12 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="">Appointment date and time</label>
-            <input class="form-control" type="datetime-local" name="street_name">
+            <label for="Date">Appointment date</label>
+            <input class="form-control" type="date" name="date" id="Date">
+        </div>
+        <div class="form-group">
+            <label for="Time">Appointment time</label>
+            <input class="form-control" type="time" name="time" id="Time">
         </div>
         <div class="form-group">
             <label for="">Appointment description </label>
