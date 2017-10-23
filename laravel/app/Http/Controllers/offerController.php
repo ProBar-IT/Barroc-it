@@ -23,7 +23,8 @@ class offerController extends Controller
      */
     public function create()
     {
-        return view('offer.create');
+        $customers = \App\Customer::all();
+        return view('offer.create')->with('customers', $customers);
     }
 
     /**
@@ -34,7 +35,20 @@ class offerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'customer_id' => 'required|int|min:1',
+            'offer_number' => 'required|numeric|min:3',
+        ]);
+
+        $offer = new \App\Offer();
+        $offer->customer_id = $request->customer_id;
+        $offer->number = $request->offer_number;
+        $offer->status = 0;
+        $offer->created_at = now();
+        $offer->updated_at = now();
+        $offer->save();
+
+        return back()->with('success', 'Your offer has been successfully added');
     }
 
     /**
