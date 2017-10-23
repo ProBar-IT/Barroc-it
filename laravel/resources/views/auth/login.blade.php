@@ -38,6 +38,7 @@
                                 @endif
                             </div>
                         </div>
+                        <input type="submit">
                     </form>
                 </div>
             </div>

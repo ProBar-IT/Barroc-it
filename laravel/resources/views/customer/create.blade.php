@@ -59,27 +59,6 @@
         <div class="form-group">
             <input class="form-control" type="number" placeholder="Ledger bill" name="ledger_bill">
         </div>
-        <div class="form-group">
-            <select name="creditworthy" class="form-control" place>
-                <option value="" disabled selected>Creditworthy</option>
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <select name="bcr" class="form-control" place>
-                <option value="" disabled selected>BCR</option>
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <select name="status" class="form-control" place>
-                <option value="" disabled selected>Status</option>
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-            </select>
-        </div>
         <button type="submit" style="margin-bottom: 50px;" class="btn btn-default pull-right">Add customer</button>
     </form>
 @endsection

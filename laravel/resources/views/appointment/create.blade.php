@@ -6,7 +6,7 @@
         {{csrf_field()}}
         <div class="form-group">
             <label for="">Select company </label>
-            <select name="customer" class="form-control" place>
+            <select name="customer_id" class="form-control" place>
                 <option value="" disabled selected>Select company</option>
                 @foreach($customers as $customer)
                     <option value="{{$customer->id}}">{{$customer->name}}</option>

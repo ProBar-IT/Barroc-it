@@ -23,7 +23,8 @@ class projectController extends Controller
      */
     public function create()
     {
-        return view('project.create');
+        $customers = \App\Customer::all();
+        return view('project.create')->with('customers', $customers);
     }
 
     /**

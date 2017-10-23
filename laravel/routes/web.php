@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'Auth\LoginController@login')->name('login');
+Route::get('/', 'Auth\LoginController@login');
 Route::get('/', 'Auth\LoginController@showLoginForm');
 Route::post('/', 'Auth\LoginController@logout');
 Route::get('/dashboard', 'dashboardController@index');
@@ -20,3 +20,4 @@ Route::resource('invoice', 'invoiceController');
 Route::resource('offer', 'offerController');
 Route::resource('project', 'projectController');
 
+Auth::routes();
