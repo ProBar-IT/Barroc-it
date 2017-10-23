@@ -23,7 +23,8 @@ class appointmentController extends Controller
      */
     public function create()
     {
-        return view('appointment.create');
+        $customers = \App\Customer::all();
+        return view('appointment.create')->with('customers' , $customers);
     }
 
     /**

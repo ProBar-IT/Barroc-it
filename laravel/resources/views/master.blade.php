@@ -38,7 +38,7 @@
                                 @if(Auth::user()->name == 'Admin')
                                     <ul class="nav navbar-nav">
                                         <li class="{{ (Request::is('admin') ? 'active' : '') }}">
-                                            <a href="{{ url('admin') }}"><i class="fa fa-home"></i> Dashboard</a>
+                                            <a href="{{ url('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
                                         </li>
                                         <li class="{{ (Request::is('overview') ? 'active' : '') }}">
                                             <a href="{{ url('overview') }}">Articles</a>
@@ -51,7 +51,7 @@
                                         </li>
                                     </ul>
 
-                                @elseif (Auth::user()->salesUser==2)
+                                @elseif (Auth::user()->name == 'Development')
                                     <ul class="nav navbar-nav">
                                         <li class="{{ (Request::is('admin') ? 'active' : '') }}">
                                             <a href="{{ url('sales') }}"><i class="fa fa-home"></i> Dashboard</a>
@@ -70,7 +70,7 @@
                                         </li>
                                     </ul>
 
-                                @elseif (Auth::user()->financeUser==3)
+                                @elseif (Auth::user()->name == 'Finance')
                                     <ul class="nav navbar-nav">
                                         <li class="{{ (Request::is('finance') ? 'active' : '') }}">
                                             <a href="{{ url('finance') }}"><i class="fa fa-home"></i> Dashboard</a>
@@ -89,7 +89,7 @@
                                         </li>
                                     </ul>
 
-                                @elseif (Auth::user()->financeUser==3)
+                                @elseif (Auth::user()->name == 'Sales')
                                     <ul class="nav navbar-nav">
                                         <li class="{{ (Request::is('finance') ? 'active' : '') }}">
                                             <a href="{{ url('finance') }}"><i class="fa fa-home"></i>Dashboard</a>
@@ -122,9 +122,7 @@
                                     </ul>
                                 @endif
                             @endif
-                            <li>
-                                <a href="{{ url('auth/logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
-                            </li>
+
                     </ul>
                     </li>
                     @endif
