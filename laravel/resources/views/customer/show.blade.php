@@ -1,7 +1,10 @@
 @extends('master')
 
 @section('content')
-<h1 class="page-header">Customer</h1>
+<div class="header col-xs-12">
+    <h1 class="page-header col-xs-6">Customer</h1>
+    <a href="{{action('customerController@edit', $customer->id)}}" class="btn btn-success pull-right page-header">Edit customer</a>
+</div>
 <div class="row">
     <section class="col-xs-6">
         <ul class="col-xs-12">

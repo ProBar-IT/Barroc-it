@@ -1,9 +1,21 @@
 @extends('master')
 
 @section('content')
-    <h1 class="page-header">Edit customer</h1>
-    <form action="" method="post">
+    <div class="header col-xs-12">
+        <h1 class="page-header col-xs-6">Customer</h1>
+        <a href="{{action('customerController@show', $customer->id)}}" class="btn btn-success pull-right page-header">Show customer</a>
+    </div>
+    @if ( $errors->any() )
+        @foreach($errors->all() as $error)
+            <li> {{ $error }} </li>
+        @endforeach
+    @endif
+    @if ( session('success') )
+        <p class="col-xs-6 col-xs-offset-3 bg-success" style="text-align: center">{{session('success')}}</p>
+    @endif
+    <form action="{{action('customerController@update', $customer->id)}}" method="post">
         {{csrf_field()}}
+        {{method_field('PUT')}}
         <div class="form-group col-xs-6">
             <label for="">Company name</label>
             <input type="text" class="form-control" value="{{$customer->name}}" name="company_name">
@@ -89,6 +101,10 @@
             <input type="text" class="form-control" value="{{$customer->limit}}" name="limit">
         </div>
         <div class="form-group col-xs-6">
+            <label for="">Customer balance </label>
+            <input type="text" class="form-control" value="{{$customer->balance}}" name="balance">
+        </div>
+        <div class="form-group col-xs-6">
             <label for="">Customer vat code </label>
             <input type="text" class="form-control" value="{{$customer->vat_code}}" name="vat_code">
         </div>
@@ -100,9 +116,12 @@
                         <option value="" disabled selected>
                             @switch($customer->bcr)
                             @case(0)
-                            Status No
+                            Status Not controlled
                             @break
                             @case(1)
+                            Status No
+                            @break
+                            @case(2)
                             Status Yes
                             @break
                             @endswitch
@@ -116,7 +135,7 @@
                     <label for="">Customer creditworthy</label>
                     <select name="creditworthy" class="form-control">
                         <option value="" disabled selected>
-                            @switch($customer->credithworthy)
+                            @switch($customer->creditworthy)
                             @case(0)
                             Status No
                             @break
@@ -131,7 +150,7 @@
                 </div>
                 <div class="form-group col-xs-6">
                     <label for="">Customer prospect</label>
-                    <select name="creditworthy" class="form-control">
+                    <select name="prospect" class="form-control">
                         <option value="" disabled selected>
                             @switch($customer->prospect)
                             @case(0)

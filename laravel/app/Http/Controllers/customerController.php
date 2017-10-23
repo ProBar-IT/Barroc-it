@@ -125,7 +125,72 @@ class customerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'company_name' => 'required|string|min:4',
+            'street' => 'required|string',
+            'housenumber' => 'required|string|min:1',
+            'zip_code' => 'required|string|min:4',
+            'residence' => 'required|string|min:1',
+            'cp_fist_name' => 'required|string|min:1',
+            'cp_last_name' => 'required|string|min:1',
+            'telephone' => 'required|string|min:9',
+            'telphone_2' => 'required|string|min:9',
+            'faxnumber' => 'required|string|min:9',
+            'email' => 'required|email',
+            'banknumber' => 'required|string|min:9',
+            'balance' => 'required|int|min:1',
+            'limit' => 'required|int|min:1',
+            'vat_code' => 'required|string|min:2',
+            'ledgerbill' => 'required'
+        ]);
+
+        $customer = Customer::find($id);
+        $customer->name = $request->company_name;
+        $customer->street = $request->street;
+        $customer->housenumber = $request->housenumber;
+        $customer->zip_code = $request->zip_code;
+        $customer->residence = $request->residence;
+        $customer->cp_name = $request->cp_fist_name;
+        $customer->cp_lastname = $request->cp_last_name;
+        $customer->tele = $request->telephone;
+        $customer->tele2 = $request->telphone_2;
+        $customer->fax_number = $request->faxnumber;
+        $customer->mail = $request->email;
+        $customer->banknumber = $request->banknumber;
+        $customer->balance = $request->balance;
+        $customer->limit = $request->limit;
+        $customer->vat_code = $request->vat_code;
+        $customer->ledgerbill = $request->ledgerbill;
+        $customer->creditworthy = 0;
+        $customer->bcr = 0;
+        $customer->status = 0;
+        $customer->created_at = Now();
+        $customer->updated_at = Now();
+        if (isset($request->cp_intersection))
+        {
+            $customer->cp_insertion = $request->cp_intersection;
+        }
+        if (isset($request->prospect))
+        {
+            $customer->prospect = $request->prospect;
+        }
+        else
+            $customer->prospect = 0;
+        if (isset($request->bcr))
+        {
+            $customer->bcr = $request->bcr;
+        }
+        else
+            $customer->bcr = 0;
+        if (isset($request->creditworthy))
+        {
+            $customer->creditworthy = $request->creditworthy;
+        }
+        else
+            $customer->creditworthy = 0;
+        $customer->save();
+
+        return back()->with('success', 'Customer edited successfully');
     }
 
     /**
@@ -138,4 +203,5 @@ class customerController extends Controller
     {
         //
     }
+
 }
