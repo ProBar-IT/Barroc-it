@@ -61,7 +61,7 @@ class projectController extends Controller
     {
         $project = \App\Project::find($id);
 
-        return view('project.edit')->with($project);
+        return view('project.edit')->with('project' , $project);
     }
 
     /**

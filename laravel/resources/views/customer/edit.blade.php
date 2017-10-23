@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    <h1 class="page-header">Customer</h1>
+    <h1 class="page-header">Edit customer</h1>
     <form action="" method="post">
         {{csrf_field()}}
         <div class="form-group col-xs-6">
@@ -148,6 +148,6 @@
                 </div>
             @endif
         @endif
-        <input type="submit" value="Customer edit" class="btn btn-default col-xs-6 col-xs-offset-3" style="margin-bottom: 50px;">
+        <input type="submit" value="Save customer" class="btn btn-default col-xs-6 col-xs-offset-3" style="margin-bottom: 50px;">
     </form>
 @endsection
