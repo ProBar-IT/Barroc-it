@@ -7,6 +7,14 @@
     background-color: #e7e7e7;
 }
 
+.collapsed{
+    background-color: #e7e7e7;
+}
+
+.navbar-collapse
+{
+    background-color: #e7e7e7;
+}
 .navbar-nav li a {
     color: #777 !important;
     font-weight: bold;

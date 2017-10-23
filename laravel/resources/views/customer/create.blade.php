@@ -2,7 +2,15 @@
 
 @section('content')
     <h1 class="page-header" style="text-align: center;">Add customer</h1>
-    <form action="" method="post" class="col-xs-6 col-xs-offset-3">
+    @if ( $errors->any() )
+        @foreach($errors->all() as $error)
+            <p class="col-xs-6 col-xs-offset-3 bg-danger" style="text-align: center">{{$error}}</p>
+        @endforeach
+    @endif
+    @if ( session('success') )
+        <p class="col-xs-6 col-xs-offset-3 bg-success" style="text-align: center">{{session('success')}}</p>
+    @endif
+    <form action="{{action('customerController@store')}}" method="post" class="col-xs-6 col-xs-offset-3">
         {{csrf_field()}}
         <div class="form-group">
             <input class="form-control" type="text" placeholder="Company name" name="company_name">
