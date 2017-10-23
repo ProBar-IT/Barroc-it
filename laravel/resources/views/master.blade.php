@@ -8,6 +8,7 @@
 
     <!-- Styles -->
 
+
     <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 
@@ -22,7 +23,7 @@
                             data-target="#bs-example-navbar-collapse-1">
                         <p class="sr-only">Toggle Navigation</p>
                     </button>
-                    <a class="navbar-brand" href="#">Laravel</a>
+                    <a class="navbar-brand" href="#">Barroc-it</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
