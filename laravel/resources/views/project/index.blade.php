@@ -11,7 +11,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <input type="search" id="search" value="" class="form-control" placeholder="Search customer">
+            <input type="search" id="search" value="" class="form-control" placeholder="Search project">
         </div>
     </div>
     <div class="row">
