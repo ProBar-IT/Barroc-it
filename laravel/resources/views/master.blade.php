@@ -32,12 +32,14 @@
                             @if(Auth::check())
                                 @if(Auth::user()->name == 'Admin')
                                     <ul class="nav navbar-nav">
-                                        <li class="{{ (Request::is('admin') ? 'active' : '') }}">
+                                        <li>
                                             <a href="{{ url('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
                                         </li>
-                                        <li><a href="{{action('customerController@index')}}">Customers</a></li>
-                                        <li class="{{ (Request::is('invoices') ? 'active' : '') }}">
-                                            <a href="{{ url('invoices') }}">About</a>
+                                        <li>
+                                            <a href="{{action('customerController@index')}}">Customers</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('invoices') }}">Projects</a>
                                         </li>
                                         <li class="{{ (Request::is('adminAppointments') ? 'active' : '') }}">
                                             <a href="{{ url('adminAppointments') }}">Contact</a>

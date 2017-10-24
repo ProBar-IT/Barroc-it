@@ -1,7 +1,10 @@
 @extends('master')
 
 @section('content')
-    <h1 class="page-header">Customers</h1>
+    <div class="header col-xs-12">
+        <h1 class="page-header col-xs-6">Customers</h1>
+        <a href="{{action('customerController@create')}}" class="btn btn-success pull-right page-header">Add customer</a>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <input type="search" id="search" value="" class="form-control" placeholder="Search customer">

@@ -1,105 +1,51 @@
-<div class="container">
+@extends('master')
+
+@section('content')
+    <div class="header col-xs-12">
+        <h1 class="page-header col-xs-6">Customers</h1>
+        <a href="{{action('projectController@create')}}" class="btn btn-success pull-right page-header">Add project</a>
+    </div>
     <div class="row">
-        <div class="panel panel-default widget">
-            <div class="panel-heading">
-                <span class="glyphicon glyphicon-comment"></span>
-                <h3 class="panel-title">
-                    Recent Comments</h3>
-                <span class="label label-info">
-                    78</span>
-            </div>
-            <div class="panel-body">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-2 col-md-1">
-                                <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
-                            <div class="col-xs-10 col-md-11">
-                                <div>
-                                    <a href="http://www.jquery2dotnet.com/2013/10/google-style-login-page-desing-usign.html">
-                                        Google Style Login Page Design Using Bootstrap</a>
-                                    <div class="mic-info">
-                                        By: <a href="#">Bhaumik Patel</a> on 2 Aug 2013
-                                    </div>
-                                </div>
-                                <div class="comment-text">
-                                    Awesome design
-                                </div>
-                                <div class="action">
-                                    <button type="button" class="btn btn-primary btn-xs" title="Edit">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-success btn-xs" title="Approved">
-                                        <span class="glyphicon glyphicon-ok"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-xs" title="Delete">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-2 col-md-1">
-                                <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
-                            <div class="col-xs-10 col-md-11">
-                                <div>
-                                    <a href="http://bootsnipp.com/BhaumikPatel/snippets/Obgj">Admin Panel Quick Shortcuts</a>
-                                    <div class="mic-info">
-                                        By: <a href="#">Bhaumik Patel</a> on 11 Nov 2013
-                                    </div>
-                                </div>
-                                <div class="comment-text">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
-                                </div>
-                                <div class="action">
-                                    <button type="button" class="btn btn-primary btn-xs" title="Edit">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-success btn-xs" title="Approved">
-                                        <span class="glyphicon glyphicon-ok"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-xs" title="Delete">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-2 col-md-1">
-                                <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
-                            <div class="col-xs-10 col-md-11">
-                                <div>
-                                    <a href="http://bootsnipp.com/BhaumikPatel/snippets/4ldn">Cool Sign Up</a>
-                                    <div class="mic-info">
-                                        By: <a href="#">Bhaumik Patel</a> on 11 Nov 2013
-                                    </div>
-                                </div>
-                                <div class="comment-text">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
-                                </div>
-                                <div class="action">
-                                    <button type="button" class="btn btn-primary btn-xs" title="Edit">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-success btn-xs" title="Approved">
-                                        <span class="glyphicon glyphicon-ok"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-xs" title="Delete">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> More</a>
-            </div>
+        <div class="col-lg-12">
+            <input type="search" id="search" value="" class="form-control" placeholder="Search customer">
         </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table" id="table">
+                <thead>
+                <tr>
+                    <th>Company name:</th>
+                    <th>Contact person</th>
+                    <th>Telephone number</th>
+                    <th>Payed</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($projects as $project)
+                    <tr class="active-tr" data-href="{{action('projectController@show', $project->id)}}">
+                        <td>{{$project->name}}</td>
+                        <td>{{$project->description}}</td>
+                        <td>{{$customer->tele}}</td>
+                        <td>
+                            @switch($project->status)
+                            @case(false)
+                            No
+                            @break
+                            @case(true)
+                            Yes
+                            @break
+                            @endswitch
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+            <hr>
+        </div>
+    </div>
+
+@endsection
+
+
+
