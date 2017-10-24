@@ -107,39 +107,34 @@
 
                                 @elseif (Auth::user()->name == 'Sales')
                                     <ul class="nav navbar-nav">
-                                        <li class="{{ (Request::is('finance') ? 'active' : '') }}">
-                                            <a href="{{ url('finance') }}"><i class="fa fa-home"></i>Dashboard</a>
-                                        </li>
-                                        <li class="{{ (Request::is('overview') ? 'active' : '') }}">
-                                            <a href="{{ url('overview') }}">Projects</a>
-                                        </li>
-                                        <li class="{{ (Request::is('customers') ? 'active' : '') }}">
-                                            <a href="{{ url('customers') }}">customers</a>
-                                        </li>
-                                        <li class="{{ (Request::is('invoices') ? 'active' : '') }}">
-                                            <a href="{{ url('invoices') }}">Invoices</a>
-                                        </li>
-                                        <li class="{{ (Request::is('adminAppointments') ? 'active' : '') }}">
-                                            <a href="{{ url('financeAppointments') }}">Appointments</a>
-                                        </li>
+                                    <li>
+                                        <a href="{{ url('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{action('customerController@index')}}">Customers</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{action('projectController@index')}}">Projects</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{action('appointmentController@create')}}">Add appointment</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{action('offerController@create')}}">Add offer</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                    </li>
                                     </ul>
-
-                                @elseif (Auth::user()->developmentUser==4)
-                                    <ul class="nav navbar-nav">
-                                        <li class="{{ (Request::is('development') ? 'active' : '') }}">
-                                            <a href="{{ url('development') }}"><i class="fa fa-home"></i>Dashbard</a>
-                                        </li>
-                                        <li class="{{ (Request::is('overview') ? 'active' : '') }}">
-                                            <a href="{{ url('overview') }}">Projects</a>
-                                        </li>
-                                        <li class="{{ (Request::is('adminAppointments') ? 'active' : '') }}">
-                                            <a href="{{ url('developmentAppointments') }}">Appointments</a>
-                                        </li>
-                                    </ul>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
                                 @endif
-
                             @endif
-
                     </ul>
                 </div>
             </div>
