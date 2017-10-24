@@ -35,9 +35,7 @@
                                         <li class="{{ (Request::is('admin') ? 'active' : '') }}">
                                             <a href="{{ url('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
                                         </li>
-                                        <li class="{{ (Request::is('overview') ? 'active' : '') }}">
-                                            <a href="{{ url('overview') }}">Articles</a>
-                                        </li>
+                                        <li><a href="{{action('customerController@index')}}">Customers</a></li>
                                         <li class="{{ (Request::is('invoices') ? 'active' : '') }}">
                                             <a href="{{ url('invoices') }}">About</a>
                                         </li>
