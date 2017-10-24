@@ -23,7 +23,8 @@ class invoiceController extends Controller
      */
     public function create()
     {
-        return view('invoice.create');
+        $projects = \App\Project::all();
+        return view('invoice.create')->with('projects', $projects);
     }
 
     /**
@@ -34,7 +35,24 @@ class invoiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'project_id' => 'required|int|min:1',
+            'description' => 'required|string|min:10',
+            'price' => 'required|numeric|min:3',
+            'status' => 'required|int',
+        ]);
+
+        $invoice = new \App\Invoice();
+        $invoice->project_id = $request->project_id;
+        $invoice->description = $request->description;
+        $invoice->price = $request->price;
+        $invoice->date_of_sending = now();
+        $invoice->status = $request->status;
+        $invoice->created_at = now();
+        $invoice->updated_at = now();
+        $invoice->save();
+
+        return back()->with('success', 'Your invoice has been successfully added');
     }
 
     /**
