@@ -42,11 +42,13 @@ class offerController extends Controller
         $this->validate($request, [
             'customer_id' => 'required|int|min:1',
             'offer_number' => 'required|numeric|min:3',
+            'description' => 'required|string|min:15'
         ]);
 
         $offer = new \App\Offer();
         $offer->customer_id = $request->customer_id;
         $offer->number = $request->offer_number;
+        $offer->description = $request->description;
         $offer->status = 0;
         $offer->created_at = now();
         $offer->updated_at = now();

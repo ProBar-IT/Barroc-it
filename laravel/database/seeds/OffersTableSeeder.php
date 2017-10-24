@@ -20,7 +20,7 @@ class OffersTableSeeder extends Seeder
                 'customer_id' => $faker->create()->numberBetween(1,50),
                 'number' => $faker->create()->numberBetween(1,54),
                 'status' => $faker->create()->numberBetween(0,1),
-                'description' => $faker->create()->description()
+                'description' => $faker->create()->text($maxNbChars = 200)
             ]);
         }
     }
