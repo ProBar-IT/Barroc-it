@@ -92,10 +92,19 @@
     </section>
 </div>
 <h2 class="page-header">Customer projects</h2>
-<section class="col-xs-12">
+<section class="col-xs-12" style="height: 300px; overflow: auto">
     <ul>
         @foreach($customer->projects as $project)
             <li class="list-group-item">Project name: <a class="pull-right" href="{{action('projectController@show', $project->id)}}"><span class="badge">{{$project->name}}</span></a></li>
+        @endforeach
+    </ul>
+</section>
+
+<h2 class="page-header">Customer offers</h2>
+<section class="col-xs-12" style="height: 300px; overflow: auto">
+    <ul>
+        @foreach($customer->offers as $offer)
+            <li class="list-group-item">Project name: <a class="pull-right" href=""><span class="badge">{{$offer->id}}</span></a></li>
         @endforeach
     </ul>
 </section>
