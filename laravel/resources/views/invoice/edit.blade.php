@@ -3,7 +3,7 @@
 @section('content')
     <div class="header col-xs-12">
         <h2 class="page-header col-xs-6">Edit invoice</h2>
-        <a href="{{action('invoiceController@show', $invoice->id)}}" class="btn btn-success pull-right page-header">Show invoice</a>
+        <a href="{{action('invoiceController@show', $invoice->id)}}" class="btn btn-default pull-right page-header">Show invoice</a>
     </div>
     @if ( $errors->any() )
         @foreach($errors->all() as $error)
