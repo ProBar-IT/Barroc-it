@@ -29,12 +29,6 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                     <ul class="nav navbar-nav navbar-right">
-                        @if (Auth::guest())
-                            <li class="{{ (Request::is('login') ? 'active' : '') }}"><a href="{{ url('login') }}"><i
-                                            class="fa fa-sign-in"></i> Login</a></li>
-                            <li class="{{ (Request::is('register') ? 'active' : '') }}"><a
-                                        href="{{ url('register') }}">Register</a></li>
-                        @else
                             @if(Auth::check())
                                 @if(Auth::user()->name == 'Admin')
                                     <ul class="nav navbar-nav">
@@ -124,9 +118,6 @@
                                 @endif
                             @endif
 
-                    </ul>
-                    </li>
-                    @endif
                     </ul>
                 </div>
             </div>

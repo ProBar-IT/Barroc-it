@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('master')
 
 @section('content')
 <div class="container">
@@ -38,7 +38,7 @@
                                 @endif
                             </div>
                         </div>
-                        <input type="submit">
+                        <input type="submit" class="btn btn-primary pull-right">
                     </form>
                 </div>
             </div>
