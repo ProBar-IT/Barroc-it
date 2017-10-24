@@ -3,7 +3,11 @@
 @section('content')
     <div class="header col-xs-12">
         <h1 class="page-header col-xs-6">Projects</h1>
+        @if(Auth::check())
+            @if(Auth::user()->name != 'Development')
         <a href="{{action('projectController@create')}}" class="btn btn-success pull-right page-header">Add project</a>
+            @endif
+        @endif
     </div>
     <div class="row">
         <div class="col-lg-12">

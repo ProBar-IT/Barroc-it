@@ -3,7 +3,11 @@
 @section('content')
     <div class="header col-xs-12">
         <h1 class="page-header col-xs-6">Edit customer</h1>
+        @if(Auth::check())
+            @if(Auth::user()->name != 'Finance')
         <a href="{{action('customerController@show', $customer->id)}}" class="btn btn-success pull-right page-header">Show customer</a>
+            @endif
+        @endif
     </div>
     @if ( $errors->any() )
         @foreach($errors->all() as $error)

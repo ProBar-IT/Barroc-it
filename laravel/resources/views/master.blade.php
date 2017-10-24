@@ -50,45 +50,60 @@
                                         <li>
                                             <a href="{{action('offerController@create')}}">Add offer</a>
                                         </li>
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                               onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                                Logout
+                                            </a>
+                                        </li>
                                     </ul>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
 
                                 @elseif (Auth::user()->name == 'Development')
-                                    <ul class="nav navbar-nav">
-                                        <li class="{{ (Request::is('admin') ? 'active' : '') }}">
-                                            <a href="{{ url('sales') }}"><i class="fa fa-home"></i> Dashboard</a>
-                                        </li>
-                                        <li class="{{ (Request::is('overview') ? 'active' : '') }}">
-                                            <a href="{{ url('overview') }}">Projects</a>
-                                        </li>
-                                        <li class="{{ (Request::is('customers') ? 'active' : '') }}">
-                                            <a href="{{ url('customers') }}">customers</a>
-                                        </li>
-                                        <li class="{{ (Request::is('invoices') ? 'active' : '') }}">
-                                            <a href="{{ url('invoices') }}">Invoices</a>
-                                        </li>
-                                        <li class="{{ (Request::is('adminAppointments') ? 'active' : '') }}">
-                                            <a href="{{ url('salesAppointments') }}">Appointments</a>
-                                        </li>
-                                    </ul>
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <a href="{{ url('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{action('projectController@index')}}">Projects</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
 
                                 @elseif (Auth::user()->name == 'Finance')
-                                    <ul class="nav navbar-nav">
-                                        <li class="{{ (Request::is('finance') ? 'active' : '') }}">
-                                            <a href="{{ url('finance') }}"><i class="fa fa-home"></i> Dashboard</a>
-                                        </li>
-                                        <li class="{{ (Request::is('overview') ? 'active' : '') }}">
-                                            <a href="{{ url('overview') }}">Projects</a>
-                                        </li>
-                                        <li class="{{ (Request::is('customers') ? 'active' : '') }}">
-                                            <a href="{{ url('customers') }}">customers</a>
-                                        </li>
-                                        <li class="{{ (Request::is('invoices') ? 'active' : '') }}">
-                                            <a href="{{ url('invoices') }}">Invoices</a>
-                                        </li>
-                                        <li class="{{ (Request::is('adminAppointments') ? 'active' : '') }}">
-                                            <a href="{{ url('financeAppointments') }}">Appointments</a>
-                                        </li>
-                                    </ul>
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <a href="{{ url('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{action('customerController@index')}}">Customers</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{action('invoiceController@create')}}">Add invoice</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
 
                                 @elseif (Auth::user()->name == 'Sales')
                                     <ul class="nav navbar-nav">
@@ -122,6 +137,7 @@
                                         </li>
                                     </ul>
                                 @endif
+
                             @endif
 
                     </ul>
