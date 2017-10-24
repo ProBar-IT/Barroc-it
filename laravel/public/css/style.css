@@ -32,6 +32,7 @@ a.navbar-brand, a.navbar-brand:hover {
 }
 
 h2 {
+    font-size: 45px;
     color: #CFC1B5;
     text-shadow: 1px 1px 1px black;
 }

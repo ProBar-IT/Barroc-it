@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="header col-xs-12">
-        <h1 class="page-header col-xs-6">Customers</h1>
-        <a href="{{action('customerController@create')}}" class="btn btn-success pull-right page-header">Add customer</a>
+        <h2 class="page-header col-xs-6">Customers</h2>
+        <button href="{{action('customerController@create')}}" class="btn btn-default pull-right page-header">Add customer</button>
     </div>
     <div class="row">
         <div class="col-lg-12">

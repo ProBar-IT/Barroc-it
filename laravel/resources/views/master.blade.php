@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 
     <title>Barroc-It</title>
 
@@ -83,7 +85,7 @@
                                 </form>
 
                                 @elseif (Auth::user()->name == 'Finance')
-                                <ul class="nav navbar-nav">
+                                <ul class="nav navbar-nav navbar-inverse">
                                     <li>
                                         <a href="{{ url('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
                                     </li>

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="header col-xs-12">
-        <h1 class="page-header col-xs-6">Edit project</h1>
+        <h2 class="page-header col-xs-6">Edit project</h2>
         <a href="{{action('projectController@show', $project->id)}}" class="btn btn-success pull-right page-header">Show project</a>
     </div>
     @if ( $errors->any() )

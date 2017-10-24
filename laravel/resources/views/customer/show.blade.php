@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="header col-xs-12">
-    <h1 class="page-header col-xs-6">Customer</h1>
+    <h2 class="page-header col-xs-6">Customer</h2>
     @if(Auth::check())
         @if(Auth::user()->name != 'Finance')
     <a href="{{action('customerController@edit', $customer->id)}}" class="btn btn-success pull-right page-header">Edit customer</a>
@@ -91,7 +91,7 @@
         </ul>
     </section>
 </div>
-<h1 class="page-header">Customer projects</h1>
+<h2 class="page-header">Customer projects</h2>
 <section class="col-xs-12">
     <ul>
         @foreach($customer->projects as $project)

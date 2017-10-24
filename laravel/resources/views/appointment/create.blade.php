@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    <h1 class="page-header" style="text-align: center;">Add appointment</h1>
+    <h2 class="page-header" style="text-align: center;">Add appointment</h2>
     @if ( $errors->any() )
         @foreach($errors->all() as $error)
             <li> {{ $error }} </li>
