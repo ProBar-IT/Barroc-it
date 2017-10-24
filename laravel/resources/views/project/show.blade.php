@@ -30,8 +30,8 @@
                 </thead>
                 <tbody>
                 @foreach($project->invoices as $invoice)
-                    <tr class="active-tr" data-href="{{action('invoiceController@show', $invoice->id)}}">
-                        <td>{{$invoice->project->name}}</td>
+                    <tr>
+                        <td class="active-tr" data-href="{{action('invoiceController@show', $invoice->id)}}">{{$invoice->project->name}}</td>
                         <td>{{$invoice->price}}</td>
                         <td>{{$invoice->date_of_sending}}</td>
                         <td>

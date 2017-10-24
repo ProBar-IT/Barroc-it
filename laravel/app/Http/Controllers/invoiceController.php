@@ -67,7 +67,9 @@ class invoiceController extends Controller
      */
     public function show($id)
     {
-        //
+        $invoice = \App\Invoice::find($id);
+
+        return view('invoice.show')->with('invoice', $invoice);
     }
 
     /**
