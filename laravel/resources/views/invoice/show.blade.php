@@ -16,7 +16,7 @@
             </tr>
             </thead>
             <tbody>
-                <tr class="active-tr" data-href="{{action('invoiceController@show', $invoice->id)}}">
+                <tr>
                     <td>{{$invoice->project->name}}</td>
                     <td>{{$invoice->price}}</td>
                     <td>{{$invoice->date_of_sending}}</td>

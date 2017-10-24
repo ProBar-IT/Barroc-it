@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Invoice;
 use Illuminate\Http\Request;
 
 class invoiceController extends Controller
@@ -82,7 +83,7 @@ class invoiceController extends Controller
     {
         $invoice = \App\Invoice::find($id);
 
-        return view('invoice.edit')->with($invoice);
+        return view('invoice.edit')->with('invoice',$invoice);
     }
 
     /**
@@ -94,7 +95,27 @@ class invoiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'project_id' => 'required|int|min:1',
+            'description' => 'required|string|min:20',
+            'invoice_price' => 'required|int|min:3',
+            'payed_status' => 'required',
+        ]);
+
+        $invoice = Invoice::find($id);
+        $invoice->project_id = $request->project_id;
+        $invoice->description = $request->description;
+        $invoice->price = $request->invoice_price;
+        $invoice->status = $request->payed_status;
+        if (isset($request->invoice_send))
+        {
+            $invoice->date_of_sending = $request->invoice_send;
+        }
+        $invoice->created_at = now();
+        $invoice->updated_at = now();
+        $invoice->save();
+
+        return back()->with('success', 'Project successfully edited');
     }
 
     /**
