@@ -21,20 +21,28 @@
             <input type="text" class="form-control" value="{{$project->name}}" name="project_name">
         </div>
         <div class="form-group col-xs-6">
-            <label for="">Payed status</label>
+            <label for="">Project status</label>
             <select name="payed_status" class="form-control">
                 <option value="" disabled selected>
                     @switch($project->status)
                     @case(0)
-                    Status No
+                    Status Not started
                     @break
                     @case(1)
-                    Status Yes
+                    Status Started
+                    @break
+                    @case(2)
+                    Status Paused
+                    @break
+                    @case(3)
+                    Status Finished
                     @break
                     @endswitch
                 </option>
-                <option value="0">No</option>
-                <option value="1">Yes</option>
+                <option value="0">Not started</option>
+                <option value="1">Started</option>
+                <option value="2">Paused</option>
+                <option value="3">Finished</option>
             </select>
         </div>
         <div class="form-group col-xs-6">

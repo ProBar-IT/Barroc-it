@@ -39,10 +39,16 @@
                                             <a href="{{action('customerController@index')}}">Customers</a>
                                         </li>
                                         <li>
-                                            <a href="{{ url('invoices') }}">Projects</a>
+                                            <a href="{{action('projectController@index')}}">Projects</a>
                                         </li>
-                                        <li class="{{ (Request::is('adminAppointments') ? 'active' : '') }}">
-                                            <a href="{{ url('adminAppointments') }}">Contact</a>
+                                        <li>
+                                            <a href="{{action('invoiceController@create')}}">Add invoice</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{action('appointmentController@create')}}">Add appointment</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{action('offerController@create')}}">Add offer</a>
                                         </li>
                                     </ul>
 

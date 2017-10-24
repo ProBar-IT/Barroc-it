@@ -35,7 +35,8 @@
                 <option value="" disabled selected></option>
                 <option value="0">Not started</option>
                 <option value="1">Started</option>
-                <option value="2">Finished</option>
+                <option value="2">Paused</option>
+                <option value="3">Finished</option>
             </select>
         </div>
         <div class="form-group">

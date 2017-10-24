@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="header col-xs-12">
-        <h1 class="page-header col-xs-6">Customers</h1>
+        <h1 class="page-header col-xs-6">Projects</h1>
         <a href="{{action('projectController@create')}}" class="btn btn-success pull-right page-header">Add project</a>
     </div>
     <div class="row">
@@ -16,9 +16,9 @@
                 <thead>
                 <tr>
                     <th>Company name:</th>
-                    <th>Contact person</th>
-                    <th>Telephone number</th>
-                    <th>Payed</th>
+                    <th>Project description</th>
+                    <th>Project status</th>
+                    <th>Maintenance contract</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,9 +26,24 @@
                     <tr class="active-tr" data-href="{{action('projectController@show', $project->id)}}">
                         <td>{{$project->name}}</td>
                         <td>{{$project->description}}</td>
-                        <td>{{$customer->tele}}</td>
                         <td>
                             @switch($project->status)
+                            @case(0)
+                            Not started
+                            @break
+                            @case(1)
+                            Started
+                            @break
+                            @case(2)
+                            Paused
+                            @break
+                            @case(3)
+                            Finished
+                            @break
+                            @endswitch
+                        </td>
+                        <td>
+                            @switch($project->maintained_contract)
                             @case(false)
                             No
                             @break
