@@ -3,7 +3,7 @@
 @section('content')
     <div class="header col-xs-12">
         <h2 class="page-header col-xs-6">Project</h2>
-        <a href="{{action('projectController@edit', $project->id)}}" class="btn btn-success pull-right page-header">Edit project</a>
+        <a href="{{action('projectController@edit', $project->id)}}" class="btn btn-default pull-right page-header">Edit project</a>
     </div>
         <section class="col-xs-12">
             <ul>

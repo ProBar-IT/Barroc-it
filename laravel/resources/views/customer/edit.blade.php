@@ -5,7 +5,7 @@
         <h2 class="page-header col-xs-6">Edit customer</h2>
         @if(Auth::check())
             @if(Auth::user()->name != 'Finance')
-        <a href="{{action('customerController@show', $customer->id)}}" class="btn btn-success pull-right page-header">Show customer</a>
+        <a href="{{action('customerController@show', $customer->id)}}" class="btn btn-default pull-right page-header">Show customer</a>
             @endif
         @endif
     </div>
