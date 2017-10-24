@@ -5,7 +5,7 @@
         <h2 class="page-header col-xs-6">Projects</h2>
         @if(Auth::check())
             @if(Auth::user()->name != 'Development')
-        <a href="{{action('projectController@create')}}" class="btn btn-success pull-right page-header">Add project</a>
+        <a href="{{action('projectController@create')}}" class="btn btn-default pull-right page-header">Add project</a>
             @endif
         @endif
     </div>

@@ -3,7 +3,7 @@
 @section('content')
     <div class="header col-xs-12">
         <h1 class="page-header col-xs-6">Invoice</h1>
-        <a href="{{action('invoiceController@edit', $invoice->id)}}" class="btn btn-success pull-right page-header">Edit invoice</a>
+        <a href="{{action('invoiceController@edit', $invoice->id)}}" class="btn btn-default pull-right page-header">Edit invoice</a>
     </div>
     <section>
         <table class="table" id="table">

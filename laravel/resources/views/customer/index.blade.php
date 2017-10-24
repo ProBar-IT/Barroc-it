@@ -3,7 +3,7 @@
 @section('content')
     <div class="header col-xs-12">
         <h2 class="page-header col-xs-6">Customers</h2>
-        <button href="{{action('customerController@create')}}" class="btn btn-default pull-right page-header">Add customer</button>
+        <a href="{{action('customerController@create')}}" class="btn btn-default pull-right page-header">Add customer</a>
     </div>
     <div class="row">
         <div class="col-lg-12">
