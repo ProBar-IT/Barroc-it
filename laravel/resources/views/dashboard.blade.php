@@ -19,6 +19,11 @@
         </ul>
     </section>
     <h2 class="page-header">Active appointments</h2>
+    <div class="row">
+        <div class="col-lg-12">
+            <input type="search" id="search" value="" class="form-control" placeholder="Search appointment">
+        </div>
+    </div>
     <section style="height: 400px; overflow: auto">
         <table class="table" id="table" >
             <thead>
