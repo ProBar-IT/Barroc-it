@@ -38,7 +38,7 @@
                                 @endif
                             </div>
                         </div>
-                        <input type="submit" class="btn btn-primary pull-right">
+                        <input type="submit" class="btn btn-primary pull-right" value="Inloggen">
                     </form>
                 </div>
             </div>
