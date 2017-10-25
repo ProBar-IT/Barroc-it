@@ -113,7 +113,7 @@
             <input type="text" class="form-control" value="{{$customer->vat_code}}" name="vat_code">
         </div>
         @if(Auth::check())
-            @if(Auth::user()->name == 'Finance')
+            @if(Auth::user()->name == 'Finance' || Auth::user()->name == 'Admin')
                 <div class="form-group col-xs-6">
                     <label for="">Customer BCR</label>
                     <select name="bcr" class="form-control">

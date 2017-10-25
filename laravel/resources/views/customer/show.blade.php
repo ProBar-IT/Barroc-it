@@ -93,11 +93,55 @@
 </div>
 <h2 class="page-header">Customer projects</h2>
 <section class="col-xs-12" style="height: 300px; overflow: auto">
-    <ul>
-        @foreach($customer->projects as $project)
-            <li class="list-group-item">Project name: <a class="pull-right" href="{{action('projectController@show', $project->id)}}"><span class="badge">{{$project->name}}</span></a></li>
-        @endforeach
-    </ul>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table" id="table">
+                <thead>
+                <tr>
+                    <th>Project name:</th>
+                    <th>Project description</th>
+                    <th>Project Status</th>
+                    <th>Maintaince contract</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($customer->projects as $project)
+                    <tr class="active-tr" data-href="{{action('customerController@show', $customer->id)}}">
+                        <td>{{$project->name}}</td>
+                        <td>{{$project->description}}</td>
+                        <td>
+                            @switch($project->status)
+                                @case(0)
+                                 Not started
+                                @break
+                                @case(1)
+                                 Started
+                                @break
+                                @case(2)
+                                 Paused
+                                @break
+                                @case(3)
+                                 Finished
+                                @break
+                            @endswitch
+                        </td>
+                        <td>
+                            @switch($project->maintained_contract)
+                                @case(false)
+                                No
+                                @break
+                                @case(true)
+                                Yes
+                                @break
+                            @endswitch
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+            <hr>
+        </div>
+    </div>
 </section>
 
 <h2 class="page-header">Customer offers</h2>
