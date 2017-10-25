@@ -3,6 +3,14 @@
 @section('content')
 <div class="header col-xs-12">
     <h2 class="page-header col-xs-6">Customer</h2>
+    @if ( $errors->any() )
+        @foreach($errors->all() as $error)
+            <p class="col-xs-6 col-xs-offset-3 bg-danger" style="text-align: center">{{$error}}</p>
+        @endforeach
+    @endif
+    @if ( session('success') )
+        <p class="col-xs-6 col-xs-offset-3 bg-success" style="text-align: center">{{session('success')}}</p>
+    @endif
     @if(Auth::check())
         @if(Auth::user()->name != 'Finance')
     <a href="{{action('customerController@edit', $customer->id)}}" class="btn btn-default pull-right page-header">Edit customer</a>
@@ -106,7 +114,7 @@
                 </thead>
                 <tbody>
                 @foreach($customer->projects as $project)
-                    <tr class="active-tr" data-href="{{action('customerController@show', $customer->id)}}">
+                    <tr class="active-tr" data-href="{{action('projectController@show', $project->id)}}">
                         <td>{{$project->name}}</td>
                         <td>{{$project->description}}</td>
                         <td>
@@ -146,10 +154,46 @@
 
 <h2 class="page-header">Customer offers</h2>
 <section class="col-xs-12" style="height: 300px; overflow: auto">
-    <ul>
-        @foreach($customer->offers as $offer)
-            <li class="list-group-item">Project name: <a class="pull-right" href=""><span class="badge">{{$offer->id}}</span></a></li>
-        @endforeach
-    </ul>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table" id="table">
+                <thead>
+                <tr>
+                    <th class="col-xs-2">Offer price</th>
+                    <th class="col-xs-6">Offer description</th>
+                    <th class="col-xs-2">Offer Status</th>
+                    <th class="col-xs-2">Change Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($customer->offers as $offer)
+                    <tr>
+                        <td>{{$offer->number . ' Euro'}}</td>
+                        <td>{{$offer->description}}</td>
+                        <td>
+                            @switch($offer->status)
+                                @case(0)
+                                Not accepted
+                                @break
+                                @case(1)
+                                Accepted
+                                @break
+                            @endswitch
+                        </td>
+                        <td>
+                            <form action="{{action('offerController@update', $offer->id)}}" method="POST">
+                                {{csrf_field()}}
+                                {{method_field('PUT')}}
+                                <input type="text" name="number" value="@switch($offer->status) @case(0) 1 @break @case(1) 0 @break @endswitch" hidden>
+                                <input type="submit" class="btn-sm btn-primary" value="@switch($offer->status) @case(0) Accepted @break @case(1) Not accepted @break @endswitch">
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+            <hr>
+        </div>
+    </div>
 </section>
 @endsection

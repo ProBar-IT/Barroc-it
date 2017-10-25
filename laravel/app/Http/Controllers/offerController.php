@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Offer;
 use Illuminate\Http\Request;
 
 class offerController extends Controller
@@ -88,7 +89,16 @@ class offerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $this->validate($request, [
+            'number' => 'required|int',
+        ]);
+
+        $offer = Offer::find($id);
+        $offer->status = $request->number;
+        $offer->save();
+
+        return back()->with('success', 'Offer status successfully edited');
     }
 
     /**
