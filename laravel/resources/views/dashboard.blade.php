@@ -18,6 +18,8 @@
             <li class="list-group-item">Currently appointments:<span class="badge">{{count($appointments_new)}}</span></li>
         </ul>
     </section>
+    @if(Auth::check())
+        @if(Auth::user()->name == 'Sales' || Auth::user()->name == 'Admin')
     <h2 class="page-header">Active appointments</h2>
     <div class="row">
         <div class="col-lg-12">
@@ -43,5 +45,7 @@
             @endforeach
             </tbody>
         </table>
+        @endif
+        @endif
     </section>
 @endsection

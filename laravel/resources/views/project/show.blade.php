@@ -18,6 +18,8 @@
             </ul>
         </section>
         <section>
+            @if(Auth::check())
+                @if(Auth::user()->name == 'Finance' || Auth::user()->name == 'Admin')
             <h2 class="page-header">Invoices</h2>
             <table class="table" id="table">
                 <thead>
@@ -48,5 +50,7 @@
                 @endforeach
                 </tbody>
             </table>
+                @endif
+            @endif
         </section>
 @endsection

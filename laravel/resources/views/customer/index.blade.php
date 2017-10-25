@@ -3,7 +3,11 @@
 @section('content')
     <div class="header col-xs-12">
         <h2 class="page-header col-xs-6">Customers</h2>
-        <a href="{{action('customerController@create')}}" class="btn btn-default pull-right page-header">Add customer</a>
+        @if(Auth::check())
+            @if(Auth::user()->name == 'Sales' || Auth::user()->name == 'Admin')
+                <a href="{{action('customerController@create')}}" class="btn btn-default pull-right page-header">Add customer</a>
+            @endif
+        @endif
     </div>
     <div class="row">
         <div class="col-lg-12">

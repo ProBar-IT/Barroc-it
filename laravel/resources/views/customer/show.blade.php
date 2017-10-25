@@ -3,20 +3,20 @@
 @section('content')
 <div class="header col-xs-12">
     <h2 class="page-header col-xs-6">Customer</h2>
-    @if ( $errors->any() )
-        @foreach($errors->all() as $error)
-            <p class="col-xs-6 col-xs-offset-3 bg-danger" style="text-align: center">{{$error}}</p>
-        @endforeach
-    @endif
-    @if ( session('success') )
-        <p class="col-xs-6 col-xs-offset-3 bg-success" style="text-align: center">{{session('success')}}</p>
-    @endif
     @if(Auth::check())
-        @if(Auth::user()->name != 'Finance')
+        @if(Auth::user()->name == 'Sales' || Auth::user()->name == 'Admin' || Auth::user()->name == 'Finance')
     <a href="{{action('customerController@edit', $customer->id)}}" class="btn btn-default pull-right page-header">Edit customer</a>
         @endif
     @endif
 </div>
+@if ( $errors->any() )
+    @foreach($errors->all() as $error)
+        <p class="col-xs-6 col-xs-offset-3 bg-danger" style="text-align: center">{{$error}}</p>
+    @endforeach
+@endif
+@if ( session('success') )
+    <p class="col-xs-6 col-xs-offset-3 bg-success" style="text-align: center">{{session('success')}}</p>
+@endif
 <div class="row">
     <section class="col-xs-6">
         <ul class="col-xs-12">
@@ -151,7 +151,8 @@
         </div>
     </div>
 </section>
-
+@if(Auth::check())
+    @if( Auth::user()->name == 'Admin' || Auth::user()->name == 'Finance')
 <h2 class="page-header">Customer offers</h2>
 <section class="col-xs-12" style="height: 300px; overflow: auto">
     <div class="row">
@@ -196,4 +197,6 @@
         </div>
     </div>
 </section>
+    @endif
+@endif
 @endsection
