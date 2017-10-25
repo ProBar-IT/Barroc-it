@@ -24,7 +24,16 @@
                             @break
                         @endswitch
                     </span></li>
-                <li class="list-group-item">Maintenance contract:<span class="badge">{{$project->maintained_contract}}</span></li>
+                <li class="list-group-item">Maintenance contract:<span class="badge">
+                        @switch($project->maintained_contract)
+                            @case(false)
+                            No
+                            @break
+                            @case(true)
+                            Yes
+                            @break
+                        @endswitch
+                    </span></li>
                 <li class="list-group-item">Application:<span class="badge">{{$project->applications}}</span></li>
                 <li class="list-group-item">hardware:<span class="badge">{{$project->hardware}}</span></li>
                 <li class="list-group-item">Operating system:<span class="badge">{{$project->operating_system}}</span></li>
