@@ -8,7 +8,22 @@
         <section class="col-xs-12">
             <ul>
                 <li class="list-group-item">Project name:<span class="badge">{{$project->name}}</span></li>
-                <li class="list-group-item">Payed:<span class="badge">{{$project->status}}</span></li>
+                <li class="list-group-item">Project status:<span class="badge">
+                        @switch($project->status)
+                            @case(0)
+                            Not started
+                            @break
+                            @case(1)
+                            Started
+                            @break
+                            @case(2)
+                            Paused
+                            @break
+                            @case(3)
+                            Finished
+                            @break
+                        @endswitch
+                    </span></li>
                 <li class="list-group-item">Maintenance contract:<span class="badge">{{$project->maintained_contract}}</span></li>
                 <li class="list-group-item">Application:<span class="badge">{{$project->applications}}</span></li>
                 <li class="list-group-item">hardware:<span class="badge">{{$project->hardware}}</span></li>
