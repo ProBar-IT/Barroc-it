@@ -14,8 +14,8 @@
       <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/laravel/resources/views/project/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" column="30" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="39" selection-end-column="30" />
+            <state relative-caret-position="556">
+              <caret line="39" column="30" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="39" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -34,8 +34,8 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/laravel/resources/views/project/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="647">
-              <caret line="56" column="38" lean-forward="true" selection-start-line="49" selection-start-column="28" selection-end-line="56" selection-end-column="38" />
+            <state relative-caret-position="477">
+              <caret line="46" column="38" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="46" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -44,8 +44,8 @@
       <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/laravel/resources/views/project/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="34" lean-forward="false" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+            <state relative-caret-position="408">
+              <caret line="24" column="34" lean-forward="false" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -134,7 +134,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,7 +230,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -341,13 +341,12 @@
       <workItem from="1508767900727" duration="15221000" />
       <workItem from="1508802196766" duration="1502000" />
       <workItem from="1508945780832" duration="3548000" />
-      <workItem from="1508954674686" duration="171000" />
-      <workItem from="1508954910096" duration="19000" />
+      <workItem from="1508954674686" duration="114000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49870000" />
+    <option name="totallyTimeSpent" value="49794000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -704,6 +703,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
           <caret line="48" column="14" lean-forward="false" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -711,6 +711,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="154" column="8" lean-forward="false" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -718,6 +719,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
           <caret line="150" column="37" lean-forward="false" selection-start-line="150" selection-start-column="37" selection-end-line="150" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -725,13 +727,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="11" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laravel/resources/views/project/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="30" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="39" selection-end-column="30" />
+        <state relative-caret-position="556">
+          <caret line="39" column="30" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="39" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -746,16 +749,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laravel/resources/views/project/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="647">
-          <caret line="56" column="38" lean-forward="true" selection-start-line="49" selection-start-column="28" selection-end-line="56" selection-end-column="38" />
+        <state relative-caret-position="477">
+          <caret line="46" column="38" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="46" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laravel/resources/views/project/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="34" lean-forward="false" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+        <state relative-caret-position="408">
+          <caret line="24" column="34" lean-forward="false" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
           <folding />
         </state>
       </provider>
